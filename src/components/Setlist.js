@@ -1,12 +1,17 @@
 import React from 'react'
+import Song from './Song';
 
-function Setlist() {
+function Setlist({ playlist, removeFromPlaylist }) {
 
     return(
         <>
         <h2>Setlist</h2>
         <div className="setlist">
-            {/** Songs go here... */}
+            {
+                playlist.map(track => {
+                    return <Song key={track.id} track={track} handleTrackClick={removeFromPlaylist} handleDeleteClick={removeFromPlaylist}/>
+                })
+            }
         </div>
         </>
     );
